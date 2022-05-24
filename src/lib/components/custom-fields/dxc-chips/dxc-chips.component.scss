@@ -1,0 +1,45 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+.dxc-chips{
+    .mat-chip:not(.mat-basic-chip)+.mat-chip:not(.mat-basic-chip) {
+        margin: 2px 4px 0px 0;
+    }
+    .mat-chip:not(.mat-basic-chip) {
+        transition: box-shadow 280ms cubic-bezier(.4,0,.2,1);
+        display: inline-flex;
+        padding: 1px 8px;
+        border-radius: 24px;
+        align-items: center;
+        cursor: default;
+        margin-top: 2px;
+        margin-right:4px
+    }
+    .mat-form-field-subscript-wrapper{
+        margin-top: 26px;
+    }
+}
+
+.dxc-more-chips{
+    border-radius: 2px;
+    margin-top: -2em;
+    padding: 8px;
+    background-color: #FFF;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+
+.dxc-chips-disabled .mat-form-field-underline {
+    background-position: 0;
+    background-color: transparent;
+}
+
+.dxc-chips-disabled .mat-form-field-underline {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.42) 33%, transparent 0%);
+    background-size: 4px 1px;
+    background-repeat: repeat-x;
+}

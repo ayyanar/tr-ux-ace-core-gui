@@ -1,0 +1,24 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin theme-session($theme) {
+    $session-header-bg-color:   gray(200);
+    dxc-session {
+        .dxc-session-header {
+          background-color: $session-header-bg-color;
+        }
+    }
+}
+
+@mixin typography-session($config) {
+    dxc-session {
+        .dxc-session-title{
+          font-size: mat-font-size($config, title);
+          line-height: mat-font-size($config, title);
+          font-weight: mat-font-weight($config, title);
+        }
+      }
+}

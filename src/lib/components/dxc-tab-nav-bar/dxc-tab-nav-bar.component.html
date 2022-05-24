@@ -1,0 +1,20 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<div class="mat-tab-nav-bar-pagination">
+    <div *ngIf="showScrollButtons" (click)="left()" aria-hidden="true" class="mat-tab-header-pagination mat-tab-header-pagination-before mat-ripple"
+        mat-ripple="">
+        <div class="mat-tab-header-pagination-chevron"></div>
+    </div>
+    <div class="mat-tab-label-container" #labelContainer>
+        <ng-content></ng-content>
+        <div class="mat-tab-nav-bar mat-tab-header" style="flex-grow: 1"></div>
+    </div>
+    <div *ngIf="showScrollButtons" (click)="right()" aria-hidden="true" class="mat-tab-header-pagination mat-tab-header-pagination-after mat-ripple"
+        mat-ripple="">
+        <div class="mat-tab-header-pagination-chevron"></div>
+    </div>
+</div>

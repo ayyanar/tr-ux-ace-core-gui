@@ -1,0 +1,16 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin alert-variant($color) {
+    color: $color;
+    background-color: $color;
+    border-color: $border;
+
+    .alert-link {
+      color: darken($color, 10%);
+    }
+  }
+  

@@ -1,0 +1,24 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+.mandatory {
+    &:before {
+        content: "*";
+        margin-left: -12px;
+        margin-right: 4px;
+        color: #999;
+    }
+}
+
+
+.mandatory-label {
+    &:after {
+        content: "*";
+        margin-left: 4px;
+        margin-right: -12px;
+        color: #999;
+    }
+}

@@ -1,0 +1,28 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+$copa-theme-mat-primary: mat-palette($mat-copa);
+$copa-theme-mat-accent: mat-palette($mat-copa, A200, A100, A400);
+$copa-theme-mat-warn: mat-palette($mat-copa-warn);
+$copa-theme-mat: mat-light-theme($copa-theme-mat-primary, $copa-theme-mat-accent, $copa-theme-mat-warn);
+$copa-image-path:'/assets/img/copa';
+
+$copa-theme-primary: ace-palette(mat-color($mat-copa,500), mat-color($mat-copa,100), mat-color($mat-copa,700));
+$copa-theme-accent: ace-palette(mat-color($mat-copa,A200), mat-color($mat-copa,A100), mat-color($mat-copa,A400));
+$copa-theme-warn: ace-palette(mat-color($mat-copa-warn,500), mat-color($mat-copa-warn,100), mat-color($mat-copa-warn,700));
+$copa-theme: ace-theme($copa-theme-primary,$copa-theme-accent,$copa-theme-warn,$copa-others,$copa-background,$copa-foreground,$copa-image-path);
+
+.copa-theme{
+    @include mat-core($copa-theme-typography);
+    @include angular-material-theme($copa-theme-mat);
+    @include material-theme-override($copa-theme, $copa-theme-mat);
+    
+    @include apply-ace-theme($copa-theme);
+    @include apply-ace-typography($copa-theme-typography);
+    @include apply-text-color($copa-theme);
+    @include apply-border-color($copa-theme);
+    @include material-override();
+}

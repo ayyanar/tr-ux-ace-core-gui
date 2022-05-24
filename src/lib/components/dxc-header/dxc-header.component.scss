@@ -1,0 +1,45 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+// @import '../../../styles/_variables.scss';
+// @import '../../../styles/components/_header.scss';
+@import "variables/components";
+
+// dxc-header {
+//   .mat-icon-button mat-icon {
+//     font-size: mat-font-size($dxc-typography, title);
+//     line-height: mat-line-height($dxc-typography, title);
+//   }
+// }
+
+mat-toolbar {
+  &.dxc-app-toolbar {
+    // @include mat-typography-level-to-styles($dxc-typography, title);
+    height: $app-toolbar-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    // &.mat-primary {
+    //   background-color: #617490;
+    //   background-image: $header-bg;
+    //   background-repeat: no-repeat;
+    //   background-size: cover;
+    // }
+    .mat-toolbar-row {
+      height: $app-toolbar-height;
+    }
+    .icn-logo {
+      // background: $icn-logo no-repeat;
+      width: $icn-logo-width;
+      height: $icn-logo-height;
+      cursor: pointer;
+    }
+    .app-menu-spacer {
+      flex: 1 1 auto;
+    }
+  }
+}

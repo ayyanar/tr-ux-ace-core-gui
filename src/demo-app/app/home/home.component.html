@@ -1,0 +1,214 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<dxc-content>
+
+    <!-- <dxc-app-top-content>
+    </dxc-app-top-content> -->
+    <dxc-app-left-content width="200px">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </dxc-app-left-content>
+    <dxc-app-center-content>
+        <div fxLayout="column" fxLayoutAlign=" none" class="dxc-full-height">
+            <div fxFlex="initial" class="p-t-16 border-bottom">
+                <dxc-nav [nav-items]="navItems"></dxc-nav>
+            </div>
+            <div fxFlex class="vertical-scroll-auto custom-scroll-bar">
+                <dxc-session session-title="Components">
+                    <dxc-session-content>
+                            <span *ngFor="let item of sample">
+                                    <button mat-button [matMenuTriggerFor]="menu">{{item.name}}</button>
+                                    <mat-menu #menu="matMenu">
+                                      <button *ngFor="let myItems of item.children" mat-menu-item>{{myItems.name}}</button>
+                                    </mat-menu>
+                                    </span>
+                        <form class="example-form" [formGroup]="sampleFrm">
+                            <h4>Input Box</h4>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <mat-form-field fxFlex="25%" class="dxc-full-width">
+                                    <input #rulename matInput placeholder="Rule Name" formControlName="inputCtrl">
+                                    <mat-hint>Sample Error</mat-hint>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="25%" class="dxc-full-width">
+                                    <input matInput placeholder="Keywords" required>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="25%" class="dxc-full-width">
+                                    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                                    <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <hr class="dxc-session-ignore-padding">
+                            <h4>Input Box</h4>
+                            <div class="content-container" fxLayout="row wrap" fxLayoutAlign="none end" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <!-- <dxc-chips fxFlex="30" formControlName="somevalue1" [placeholder]="'Keywords'" [maxChipsAllow]="100" [maxChipsShow]="0">
+                                        </dxc-chips> -->
+                                <!-- <dxc-chips fxFlex="30" formControlName="somevalue1" [placeholder]="'Keywords'" [maxChipsAllow]="0" [maxChipsShow]="3">
+                                        </dxc-chips> -->
+                                <!-- <dxc-chips fxFlex="30" [placeholder]="placeholder" [inputPattern]="'^\\d+$'" [maxChipsAllow]="5" [maxChipsShow]="3" formControlName="somevaluex"
+                                    [isValid]="sampleFrm.get('somevaluex').valid || !sampleFrm.get('somevaluex').dirty">
+                                    <mat-error *ngIf="sampleFrm.get('somevaluex').hasError('required')">Required Field</mat-error>
+                                    <mat-error *ngIf="sampleFrm.get('somevaluex').hasError('pattern')">Invalid pattern</mat-error>
+                                </dxc-chips> -->
+                                <dxc-chip-autocomplete fxFlex="auto"
+                                    [hint]="'Segment 1 Type'" 
+                                    [placeholder]="'Departure Point'" 
+                                    [dropdownLimit]="0" 
+                                    [searchLimit]="3"
+                                    [maxChipsAllow]="3" 
+                                    displayDropdownByDefault 
+                                    [maxChipsShow]="0" 
+                                    formControlName="somevalue" 
+                                    [replaceStop]="['ALL','HOST','HOSTOP','HOSTMKT']" 
+                                    [dropdownList]="listOfSegType | myObservable"
+                                    required 
+                                    searchBy="both">
+                                </dxc-chip-autocomplete>
+                                <div></div>
+                                <dxc-chip-autocomplete fxFlex="30" [hint]="'Airport/City'" [placeholder]="'Departure Point'" [dropdownLimit]="20" [searchLimit]="3"
+                                    [maxChipsAllow]="0" [maxChipsShow]="5" [replaceStop]="'***'" formControlName="somevalue2" [dropdownList]="listOfAirport | myObservable">
+                                </dxc-chip-autocomplete>
+                                <dxc-chip-autocomplete fxFlex="30" [hint]="'Airport/City'" [placeholder]="'Departure Point'" [dropdownLimit]="20" [searchLimit]="3"
+                                    [maxChipsAllow]="3" [maxChipsShow]="0" formControlName="somevalue3" [dropdownList]="listOfAirport | myObservable"
+                                    required>
+                                </dxc-chip-autocomplete>
+                               
+
+                                <!-- <dxc-chip-autocomplete 
+                                    fxFlex="30" 
+                                    [hint]="'Airport/City'" 
+                                    [placeholder]="'Departure Point'" 
+                                    [dropdownLimit]="20" 
+                                    [searchLimit]="3"
+                                    [maxChipsAllow]="20" 
+                                    [maxChipsShow]="4"  
+                                    [forEdit]="sampleFrm.get('somevalue').value"
+                                    (selectedList)="sampleFrm.get('somevalue').setValue($event)"
+                                    [dropdownList]="listOfAirport" [disabled]="true">
+                                </dxc-chip-autocomplete> -->
+                                <button mat-raised-button color="primary" (click)="clearForm()">Clear</button>
+                                <button mat-raised-button color="primary" (click)="submitForm()">Submit</button>
+                            </div>
+                          <!--  {{sampleFrm.controls.somevaluex.value}} newcode --> 
+                            <h2 class="mat-title">Select</h2>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <mat-form-field fxFlex="25%" class="dxc-full-width">
+                                    <mat-select placeholder="Status" [(value)]="selected">
+                                        <mat-option>None</mat-option>
+                                        <mat-option value="option1">Simulation</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                                <mat-form-field fxFlex="25%" class="dxc-full-width">
+                                    <mat-select placeholder="Transaction Type" [(value)]="selected">
+                                        <mat-option>None</mat-option>
+                                        <mat-option value="option1">Simulation</mat-option>
+                                        <mat-option value="option2">Option 2</mat-option>
+                                        <mat-option value="option3">Option 3</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                            <hr class="dxc-session-ignore-padding">
+                            <h2 class="mat-title">Checkbox</h2>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <mat-checkbox color="primary">Check me!</mat-checkbox>
+                                <mat-checkbox color="primary" checked=true>Check me!</mat-checkbox>
+                                <mat-checkbox color="primary" checked=true indeterminate="true">Check me!</mat-checkbox>
+                                <mat-checkbox color="primary" disabled="true">Check me!</mat-checkbox>
+                            </div>
+                            <hr class="dxc-session-ignore-padding">
+                            <h2 class="mat-title">Radio Button</h2>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <mat-radio-group>
+                                    <mat-radio-button color="primary" value="1">Option 1</mat-radio-button>
+                                    <mat-radio-button checked=true color="primary" value="2">Option 2</mat-radio-button>
+                                    <mat-radio-button color="primary" value="2" disabled="true">Option 3</mat-radio-button>
+                                </mat-radio-group>
+                            </div>
+                            <hr class="dxc-session-ignore-padding">
+                            <h2 class="mat-title">Slide Toggle</h2>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <mat-slide-toggle color="primary" checked=true>Slide me!</mat-slide-toggle>
+                                <mat-slide-toggle color="primary">Slide me!</mat-slide-toggle>
+                                <mat-slide-toggle color="primary" disabled="true">Slide me!</mat-slide-toggle>
+                            </div>
+                            <hr class="dxc-session-ignore-padding">
+                            <h2 class="mat-title">Button</h2>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <button mat-raised-button>Normal</button>
+                                <button mat-raised-button color="primary" (click)="openDialog()">Normal</button>
+                                <button mat-raised-button color="accent">Normal</button>
+                                <button mat-raised-button color="warn">Normal</button>
+                                <button mat-raised-button disabled>Normal</button>
+                            </div>
+                            <hr class="dxc-session-ignore-padding">
+                            <h2 class="mat-title">Button Toggle</h2>
+                            <div class="content-container" fxLayout fxLayout.xs="column" fxLayoutAlign="left" fxLayoutGap="10px" fxLayoutGap.xs="0">
+                                <dxc-class-selector>
+                                    <mat-button-toggle-group multiple>
+                                        <mat-button-toggle *ngFor="let pie of pieOptions" [value]="pie" (change)="valuechange($event)">
+                                            {{pie}}
+                                        </mat-button-toggle>
+                                    </mat-button-toggle-group>
+                                </dxc-class-selector>
+                            </div>
+                        </form>
+                    </dxc-session-content>
+                </dxc-session>
+                <dxc-session session-title="Typography">
+                    <dxc-session-content>
+                        <h1 class="mat-display-1 text-primary">Display 1</h1>
+                        <h1 class="mat-headline text-primary-dark">Headline</h1>
+                        <h2 class="mat-title text-accent-dark">Title</h2>
+                        <h3 class="mat-subheading-1 text-danger">Subheading 1</h3>
+                        <h4 class="mat-subheading-2 border-danger border">Subheading 2</h4>
+                        <p class="mat-body-1">Body 1</p>
+                        <p class="mat-body-2">Body 2 Bolder</p>
+                        <p class="mat-caption">Caption</p>
+                    </dxc-session-content>
+                </dxc-session>
+                <dxc-session session-title="Icons">
+                    <dxc-session-content>
+                        <mat-icon>add_box</mat-icon>
+                        <mat-icon>add_box</mat-icon>
+                        <mat-icon>add_box</mat-icon>
+                        <mat-icon>home</mat-icon>
+                        <mat-icon>home</mat-icon>
+                        <div>
+                            <mat-icon>add_box</mat-icon>
+                            <mat-icon>add_box</mat-icon>
+                            <mat-icon>add_box</mat-icon>
+                            <mat-icon>home</mat-icon>
+                            <mat-icon>home</mat-icon>
+                        </div>
+                        <div>
+                            <mat-icon>add_box</mat-icon>
+                            <mat-icon>add_box</mat-icon>
+                            <mat-icon>add_box</mat-icon>
+                            <mat-icon>home</mat-icon>
+                            <mat-icon>home</mat-icon>
+                        </div>
+                    </dxc-session-content>
+                </dxc-session>
+            </div>
+        </div>
+    </dxc-app-center-content>
+    <dxc-app-right-content width="200px">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+            occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+    </dxc-app-right-content>
+
+</dxc-content>

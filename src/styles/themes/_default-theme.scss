@@ -1,0 +1,32 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+$default-theme-mat-primary: mat-palette($mat-default);
+$default-theme-mat-accent: mat-palette($mat-default, A200, A100, A400);
+$default-theme-mat-warn: mat-palette($mat-default-warn);
+$default-theme-mat: mat-light-theme($default-theme-mat-primary, $default-theme-mat-accent, $default-theme-mat-warn);
+$default-image-path:'/assets/img/default';
+
+$default-theme-primary: ace-palette(mat-color($mat-default,500), mat-color($mat-default,100), mat-color($mat-default,700));
+$default-theme-accent: ace-palette(mat-color($mat-default,A200), mat-color($mat-default,A100), mat-color($mat-default,A400));
+$default-theme-warn: ace-palette(mat-color($mat-default-warn,500), mat-color($mat-default-warn,100), mat-color($mat-default-warn,700));
+$default-theme: ace-theme($default-theme-primary,$default-theme-accent,$default-theme-warn,$default-others,$default-background,$default-foreground,$default-image-path);
+
+//only include this in the default theme
+@include mat-core();
+@include angular-material-theme($default-theme-mat);
+
+.default-theme{
+    @include mat-core($default-theme-typography);
+    @include angular-material-theme($default-theme-mat);
+    @include material-theme-override($default-theme, $default-theme-mat);
+    
+    @include apply-ace-theme($default-theme);
+    @include apply-ace-typography($default-theme-typography);
+    @include apply-text-color($default-theme);
+    @include apply-border-color($default-theme);
+    @include material-override();
+}

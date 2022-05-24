@@ -1,0 +1,20 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+
+//alert-message variables
+$alert-max-width:           800px;
+
+//variable for alert message on top
+$alert-close-margin:        $default-spacing;
+
+
+//variables for alert popover
+$alert-popover-margin:      $default-spacing;
+$alert-popover-padding:     ($default-spacing * .5);
+
+//variables for alert
+$alert-padding:             ($default-spacing * .5);

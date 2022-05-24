@@ -1,0 +1,50 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<form class="dxc-chip-autocomplete">
+	<mat-form-field #chipparent [class.mat-chip-form-field-invalid]="!!(autoCompleteChipList && autoCompleteChipList.invalid && (autoCompleteChipList.touched || (_parentFormGroup && _parentFormGroup.submitted)))">
+		<mat-label>{{placeholder}}</mat-label>
+		<mat-chip-list #chipList class="dxc-chips" >
+			<mat-chip class=" mat-standard-chip mat-chip-selected" selected="true" *ngFor="let chip of showChips" [selectable]="selectable" [color]="chip.isUnavaliable ? 'warn':'normal'" [removable]="removable" (removed)="removeChip(chip)">
+				{{chip.displayText || chip.id}} 
+				<mat-icon matChipRemove *ngIf="removable && !disabled">cancel</mat-icon>				
+			</mat-chip>
+			<input matInput [readonly]="readonly" #chipInput class="autoInput" 
+				[matChipInputFor]="chipList"
+				[matAutocomplete]="auto" 
+				[matChipInputAddOnBlur]="addOnBlur" 
+				[formControl]="autoCompleteChipList" 
+				(blur)="clearOnBlur()" (focus)="updateDropdown('')" (paste)="onPaste($event)"/>
+		</mat-chip-list>
+		<mat-autocomplete #auto="matAutocomplete" (optionSelected)="addChip($event, chipInput)">
+			<mat-option *ngFor="let option of filteredOptions" [value]="option">
+				<span>{{option.value}}</span>
+			</mat-option>
+		</mat-autocomplete>
+		<button cdk-overlay-origin #addConditionOrigin="cdkOverlayOrigin" [style.display]="isShowMoreVisible?'block':'none'" matSuffix
+		    mat-icon-button color="primary" (click)="showAllChips()">
+			<mat-icon aria-label="show all">more_horiz</mat-icon>
+		</button>
+
+		<ng-template cdk-portal #addConditionTemplate="cdkPortal">
+			<div class="dxc-chip-autocomplete mat-elevation-z8 dxc-more-chips">
+				<mat-chip-list #chipList>
+					<mat-chip class=" mat-standard-chip mat-chip-selected" selected="true" *ngFor="let chip of chips;let i = index" [selectable]="false" [color]="chip.isUnavaliable ? 'warn':'normal'" [removable]="removable" (removed)="removeChip(chip)">
+						{{chip.displayText || chip.id}}
+						<mat-icon matChipRemove *ngIf="removable && !disabled">cancel</mat-icon>
+					</mat-chip>
+				</mat-chip-list>
+			</div>
+		</ng-template>
+		<mat-hint *ngIf="maxChipsAllow > 0" align="end">{{chips.length}}/{{maxChipsAllow}}</mat-hint>
+		<mat-hint *ngIf="isPasted">{{pasteText}}</mat-hint>
+		<mat-hint *ngIf="hint && !isInvalid && !isError && !isPasted">{{hint}}</mat-hint>
+		<!-- <mat-hint *ngIf="tempHint && !isInvalid" align="start" class="errorhighlight">{{errorMessage}}</mat-hint> -->
+		<mat-hint class="mat-error" *ngIf="!isPasted && !!(autoCompleteChipList && autoCompleteChipList.invalid && (autoCompleteChipList.touched || (_parentFormGroup && _parentFormGroup.submitted)))">{{errorMessage}}</mat-hint>
+		<!-- <mat-hint class="mat-error" *ngIf="autoCompleteChipList.hasError('invalid')">Invalid chip(s)</mat-hint> -->
+	</mat-form-field>
+	
+</form>

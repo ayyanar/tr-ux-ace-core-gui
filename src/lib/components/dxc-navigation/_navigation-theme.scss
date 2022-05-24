@@ -1,0 +1,43 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin theme-navigation($theme) {
+    $theme-others: map-get($theme, others);
+    $link-color: map-get($theme-others, link);
+    $nav-link-color:                $link-color;
+    $nav-link-back-color:           white;
+    $nav-link-hover-back-color:     gray(100);
+    $nav-link-active-back-color:    #9E4E23;
+    $nav-link-active-color:         white;
+
+    dxc-nav {
+        .nav {
+            .nav-link {
+                color: $nav-link-color;
+                &:hover {
+                    background-color: $nav-link-hover-back-color;
+                }
+            }
+            .nav-link.active {
+                background-color: $nav-link-active-back-color;
+                color: $nav-link-active-color;
+            }
+        }
+    }
+}
+
+@mixin typography-navigation($config) {
+    dxc-nav {
+        .nav {
+            .nav-link {
+                font-family: mat-font-family($config);
+                font-size: mat-font-size($config, body-1);
+                line-height: mat-line-height($config, body-1);
+                font-weight: mat-font-weight($config, body-1);
+            }
+        }
+    }
+}

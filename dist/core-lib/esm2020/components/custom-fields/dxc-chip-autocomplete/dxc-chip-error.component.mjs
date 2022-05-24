@@ -1,0 +1,17 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+import { Component, ViewEncapsulation } from '@angular/core';
+import * as i0 from "@angular/core";
+import * as i1 from "@angular/material/form-field";
+export class DxcChipErrorComponent {
+}
+DxcChipErrorComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.2", ngImport: i0, type: DxcChipErrorComponent, deps: [], target: i0.ɵɵFactoryTarget.Component });
+DxcChipErrorComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "12.0.0", version: "13.3.2", type: DxcChipErrorComponent, selector: "dxc-chip-error", ngImport: i0, template: "<!--\n    Unpublished work \u00A9 2019 DXC Technology Company.\n    All rights reserved.\n    Use, duplication, and/or alteration is subject to license terms.\n-->\n\n<ng-container>\n    <mat-hint class=\"mat-error\">\n        <ng-content></ng-content>\n    </mat-hint>\n</ng-container>", directives: [{ type: i1.MatHint, selector: "mat-hint", inputs: ["align", "id"] }], encapsulation: i0.ViewEncapsulation.None });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.2", ngImport: i0, type: DxcChipErrorComponent, decorators: [{
+            type: Component,
+            args: [{ selector: 'dxc-chip-error', encapsulation: ViewEncapsulation.None, template: "<!--\n    Unpublished work \u00A9 2019 DXC Technology Company.\n    All rights reserved.\n    Use, duplication, and/or alteration is subject to license terms.\n-->\n\n<ng-container>\n    <mat-hint class=\"mat-error\">\n        <ng-content></ng-content>\n    </mat-hint>\n</ng-container>" }]
+        }] });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHhjLWNoaXAtZXJyb3IuY29tcG9uZW50LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vc3JjL2xpYi9jb21wb25lbnRzL2N1c3RvbS1maWVsZHMvZHhjLWNoaXAtYXV0b2NvbXBsZXRlL2R4Yy1jaGlwLWVycm9yLmNvbXBvbmVudC50cyIsIi4uLy4uLy4uLy4uLy4uLy4uL3NyYy9saWIvY29tcG9uZW50cy9jdXN0b20tZmllbGRzL2R4Yy1jaGlwLWF1dG9jb21wbGV0ZS9keGMtY2hpcC1lcnJvci5jb21wb25lbnQuaHRtbCJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7OztHQUlHO0FBRUgsT0FBTyxFQUFFLFNBQVMsRUFBRSxpQkFBaUIsRUFBYyxNQUFNLGVBQWUsQ0FBQzs7O0FBVXZFLE1BQU0sT0FBTyxxQkFBcUI7O2tIQUFyQixxQkFBcUI7c0dBQXJCLHFCQUFxQixzRENoQnBDLGdTQVVlOzJGRE1BLHFCQUFxQjtrQkFObkMsU0FBUzsrQkFDSSxnQkFBZ0IsaUJBRVgsaUJBQWlCLENBQUMsSUFBSSIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBVbnB1Ymxpc2hlZCB3b3JrIMKpIDIwMTkgRFhDIFRlY2hub2xvZ3kgQ29tcGFueS5cbiAqIEFsbCByaWdodHMgcmVzZXJ2ZWQuXG4gKiBVc2UsIGR1cGxpY2F0aW9uLCBhbmQvb3IgYWx0ZXJhdGlvbiBpcyBzdWJqZWN0IHRvIGxpY2Vuc2UgdGVybXMuXG4gKi9cblxuaW1wb3J0IHsgQ29tcG9uZW50LCBWaWV3RW5jYXBzdWxhdGlvbiwgZm9yd2FyZFJlZiB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHtNYXRGb3JtRmllbGRNb2R1bGV9IGZyb20gJ0Bhbmd1bGFyL21hdGVyaWFsL2Zvcm0tZmllbGQnO1xuXG5cbkBDb21wb25lbnQoe1xuICAgIHNlbGVjdG9yOiAnZHhjLWNoaXAtZXJyb3InLFxuICAgIHRlbXBsYXRlVXJsOiAnZHhjLWNoaXAtZXJyb3IuY29tcG9uZW50Lmh0bWwnLFxuICAgIGVuY2Fwc3VsYXRpb246IFZpZXdFbmNhcHN1bGF0aW9uLk5vbmUsXG4gIH0pXG5cbiAgZXhwb3J0IGNsYXNzIER4Y0NoaXBFcnJvckNvbXBvbmVudCB7XG4gIH1cbiIsIjwhLS1cbiAgICBVbnB1Ymxpc2hlZCB3b3JrIMKpIDIwMTkgRFhDIFRlY2hub2xvZ3kgQ29tcGFueS5cbiAgICBBbGwgcmlnaHRzIHJlc2VydmVkLlxuICAgIFVzZSwgZHVwbGljYXRpb24sIGFuZC9vciBhbHRlcmF0aW9uIGlzIHN1YmplY3QgdG8gbGljZW5zZSB0ZXJtcy5cbi0tPlxuXG48bmctY29udGFpbmVyPlxuICAgIDxtYXQtaGludCBjbGFzcz1cIm1hdC1lcnJvclwiPlxuICAgICAgICA8bmctY29udGVudD48L25nLWNvbnRlbnQ+XG4gICAgPC9tYXQtaGludD5cbjwvbmctY29udGFpbmVyPiJdfQ==

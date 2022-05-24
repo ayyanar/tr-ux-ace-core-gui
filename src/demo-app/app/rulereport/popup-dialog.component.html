@@ -1,0 +1,65 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<h1 mat-dialog-title>Class Closure Confirmation</h1>
+<div mat-dialog-content>
+    <h2 class="mat-title m-b-8">Rule Name</h2>
+    <div class="dxc-readonly-field">
+        <p class="field-text">DEN connections T class closure</p>
+    </div>
+    <h2 class="mat-title m-b-8">Market</h2>
+    <div fxLayout="row" fxLayoutAlign="none start">
+        <div class="dxc-readonly-field" fxFlex="120px">
+            <div class="placeholder">
+                <label>Origin</label>
+                <p class="helper-text">Helper Text</p>
+            </div>
+            <p class="field-text">MIA</p>
+            <p class="field-text">ORD</p>
+        </div>
+        <div class="dxc-readonly-field" fxFlex>
+            <div class="placeholder no-helper-text">
+                <label>Destination</label>
+            </div>
+            <p class="field-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+        </div>
+    </div>
+
+    <h2 class="mat-title m-b-8">Market</h2>
+    <div fxLayout="row" fxLayoutAlign="none start">
+        <div class="dxc-readonly-field" fxFlex="120px">
+            <div class="placeholder">
+                <label>Origin</label>
+                <p class="helper-text">Helper Text</p>
+            </div>
+            <p class="field-text">MIA</p>
+        </div>
+        <div class="dxc-readonly-field" fxFlex>
+            <div class="placeholder">
+                <label>Destination</label>
+            </div>
+            <p class="field-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+        </div>
+    </div>
+    <div class="dxc-readonly-field">
+        <label>Origin</label>
+        <p class="helper-text">Helper Text</p>
+        <p class="field-text">MIA</p>
+        <p class="field-text">ORD</p>
+    </div>
+    <mat-form-field floatLabel="always">
+        <input matInput placeholder="Sample" readonly value="Helloooo">
+
+    </mat-form-field>
+    <p>What's your favorite animal?</p>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.animal">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div>

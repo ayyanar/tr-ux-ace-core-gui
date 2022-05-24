@@ -1,0 +1,23 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin theme-app-layout($theme){
+    $background: map-get($theme, background);
+	$app-layout-bg-color: map-get($background,app-layout);
+	$layout-content-bg-color: gray(200);
+
+	dxc-app-layout {
+		background-color: $app-layout-bg-color;
+		.dxc-app-main {
+			dxc-app-top-content {
+				background-color: $layout-content-bg-color;
+			}
+			dxc-app-right-content, dxc-app-left-content {
+				background-color: $layout-content-bg-color;
+			}
+		}
+	}
+}

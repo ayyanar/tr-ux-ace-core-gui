@@ -1,0 +1,94 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+$mat-copa: (
+    50: #e0ecf5,
+    100: #b3cfe5,
+    200: #80b0d4,
+    300: #528cda,
+    400: #2678b6,
+    500: #0060a9,
+    600: #0058a2,
+    700: #0d3050,
+    800: #0f263a,
+    900: #0d1b27,
+    A100: #efefef,
+    A200: #999999,
+    A400: #666666,
+    A700: #333333,
+    contrast: (
+        50: $black-87-opacity,
+        100: $black-87-opacity,
+        200: $black-87-opacity,
+        300: $black-87-opacity,
+        400: $black-87-opacity,
+        500: white,
+        600: white,
+        700: $white-87-opacity,
+        800: $white-87-opacity,
+        900: $white-87-opacity,
+        A100: $black-87-opacity,
+        A200: white,
+        A400: white,
+        A700: white,
+    )
+);
+
+$mat-copa-warn: (
+    50 : #fbe7e3,
+    100 : #f5c3b9,
+    200 : #ee9b8b,
+    300 : #e7735c,
+    400 : #e15539,
+    500 : #dc3716,
+    600 : #d83113,
+    700 : #d32a10,
+    800 : #ce230c,
+    900 : #c51606,
+    A100 : #ffefee,
+    A200 : #ffbfbb,
+    A400 : #ff8e88,
+    A700 : #ff766f,
+    contrast: (
+        50 : $black-87-opacity,
+        100 : $black-87-opacity,
+        200 : $black-87-opacity,
+        300 : $black-87-opacity,
+        400 : white,
+        500 : white,
+        600 : white,
+        700 : white,
+        800 : white,
+        900 : white,
+        A100 : $black-87-opacity,
+        A200 : $black-87-opacity,
+        A400 : $black-87-opacity,
+        A700 : $black-87-opacity,
+    )
+);
+
+$copa-others: (
+    tertiary: #9E4E23,
+    tertiary-l: #C27028,
+    tertiary-d: #DEB739,
+    success: #00A973,
+    info: mat-color($mat-copa,100),
+    warning: #E6A717,
+    danger:  mat-color($mat-copa-warn,500),
+    link: mat-color($mat-copa,300)
+);
+
+$copa-background: (
+    app-layout: gray(200),
+    app-layout-content: gray(200),
+    table-header: #f0e2b2,
+    dialog-title: gray(300),
+
+);
+
+$copa-foreground: (
+    table-header: black
+);

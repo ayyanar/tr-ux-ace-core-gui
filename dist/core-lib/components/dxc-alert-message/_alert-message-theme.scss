@@ -1,0 +1,71 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin theme-alert-message($theme){
+    $others: map-get($theme,others);
+    $alert-close-color:         map-get($others,link);
+    $alert-close-hover-color:   darken( map-get($others,link), 10%);
+    $alert-count-bg-color:      gray(500);
+    $alert-count-color:         white;
+    $alert-popover-bg-color:    white;
+    $alert-bg-color:            white;
+    $alert-success-color:       map-get($others,success);
+    $alert-info-color:          map-get($others,info);
+    $alert-warning-color:       map-get($others,warning);
+    $alert-danger-color:        map-get($others,danger);
+    .alert-dismissable {
+        .alert-close{
+            color: $alert-close-color;
+    
+            &:hover{
+                color: $alert-close-hover-color;
+            }
+        }
+    
+        .alert-count{
+            background-color: $alert-count-bg-color;
+            color: $alert-count-color;
+        }
+    }
+    
+    .alert-popup {
+        background-color: $alert-popover-bg-color;
+    }
+    
+    
+    .alert {
+        background-color: $alert-bg-color;
+
+        &.alert-danger {
+            color: $alert-danger-color;
+        }
+        
+        &.alert-success {
+            color: $alert-success-color;
+        }
+        
+        &.alert-warning {
+            color: $alert-warning-color
+        }
+        
+        &.alert-info {
+            color: $alert-info-color
+        }
+    }
+}
+
+@mixin typography-alert-message($config) {
+    .alert-dismissable {
+        .alert-count{
+            @include mat-typography-level-to-styles($config, body-2);
+            font-weight: mat-font-weight($config, body-2);
+        }
+    }
+    
+    .alert-text{
+        @include mat-typography-level-to-styles($config, body-2);
+    }
+}

@@ -1,0 +1,47 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+.dxc-readonly-field {
+    padding-bottom: 8px;
+    display: block;
+	
+	label{
+		display: block;
+		font-size: 12px;
+		line-height: 1;
+        color: #0060A9;
+        padding-bottom: 4px;
+    }
+    .placeholder {
+        padding-bottom: 4px;
+        &.no-helper-text{
+            padding-bottom: 16px;
+        }
+        &> label{
+            line-height: 1;
+        }
+        >*{
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+	.helper-text, .field-text{
+		padding: 0;
+		margin: 0;
+	}
+	.helper-text{
+		font-size: 12px;
+        line-height: 1;
+        color: rgba(black, 0.54);
+	}
+	.field-text {
+		font-weight: 500;
+		font-size: 14px;
+        line-height: 20px;
+        color: $black-87-opacity;
+	}
+}

@@ -1,0 +1,33 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<div *ngIf="messages.length > 0" class="{{ cssClass(messages[0]) }} alert-dismissable">
+    <mat-icon role="button" (click)="removeAlert(messages[0])" class="alert-close">close</mat-icon>
+    <ng-container [ngSwitch]="messages[0].type">
+        <mat-icon *ngSwitchCase="0">check_circle</mat-icon>
+        <mat-icon *ngSwitchCase="1">error</mat-icon>
+        <mat-icon *ngSwitchCase="2">info</mat-icon>
+        <mat-icon *ngSwitchCase="3">warning</mat-icon>
+        <mat-icon *ngSwitchDefault>notifications</mat-icon>
+    </ng-container>
+    <span class="alert-text" cdk-overlay-origin #messageOrigin="cdkOverlayOrigin" (click)="showAllMessages()">{{messages[0].message}}</span>
+    <div *ngIf="messages.length > 1" class="alert-count" (click)="showAllMessages()">{{messages.length}}</div>
+</div>
+<ng-template cdk-portal #messageTemplate="cdkPortal">
+    <ul class="alert-popup mat-elevation-z6">
+        <li *ngFor="let msg of messages" class="{{ cssClass(msg) }}">
+            <ng-container [ngSwitch]="msg.type">
+                <mat-icon *ngSwitchCase="0">check_circle</mat-icon>
+                <mat-icon *ngSwitchCase="1">error</mat-icon>
+                <mat-icon *ngSwitchCase="2">info</mat-icon>
+                <mat-icon *ngSwitchCase="3">warning</mat-icon>
+                <mat-icon *ngSwitchDefault>notifications</mat-icon>
+            </ng-container>
+
+            <span class="alert-text">{{msg.message}}</span>
+        </li>
+    </ul>
+</ng-template>

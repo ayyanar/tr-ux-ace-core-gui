@@ -1,0 +1,56 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+/**
+ * Margin and Padding
+ * The following creates this pattern:
+ * .m-0{margin:0}.m-t-0{margin-top:0}.m-r-0{margin-right:0}.m-b-0{margin-bottom:0}.m-l-0{margin-left:0}.m-x-0{margin-right:0;margin-left:0}.m-y-0{margin-top:0;margin-bottom:0}
+ * Same for Padding (using the 'p' abbreviation)
+ * From 0, 2, 5, 10, 15, 20, 25, 30
+**/
+// sass-lint:disable-all
+@each $prop, $abbrev in (margin: m, padding: p) {
+  // sass-lint:enable-all
+  @each $size, $length in $spacers {
+    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+    .#{$abbrev}-t-#{$size},
+    .#{$abbrev}-y-#{$size} {
+      #{$prop}-top: $length !important;
+    }
+    .#{$abbrev}-r-#{$size},
+    .#{$abbrev}-x-#{$size} {
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}-b-#{$size},
+    .#{$abbrev}-y-#{$size} {
+      #{$prop}-bottom: $length !important;
+    }
+    .#{$abbrev}-l-#{$size},
+    .#{$abbrev}-x-#{$size} {
+      #{$prop}-left: $length !important;
+    }
+  }
+}
+
+
+// Some special margin utils
+.m-auto { margin: auto !important; }
+.m-t-auto,
+.m-y-auto {
+  margin-top: auto !important;
+}
+.m-r-auto,
+.m-x-auto {
+  margin-right: auto !important;
+}
+.m-b-auto,
+.m-y-auto {
+  margin-bottom: auto !important;
+}
+.m-l-auto,
+.m-x-auto {
+  margin-left: auto !important;
+}

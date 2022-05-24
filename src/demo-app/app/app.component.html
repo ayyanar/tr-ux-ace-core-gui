@@ -1,0 +1,29 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<div dir="ltr" class="ace-app-container {{selectedTheme.value}}">
+  <dxc-app-layout>
+    <dxc-header title="Retail Availability Rules Engine" (onLogoClick)="logoclick()">
+      <button mat-button [matMenuTriggerFor]="menu">
+        {{selectedTheme.name}}
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>build</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngFor="let theme of themes" mat-menu-item (click)="onThemeChange(theme)">
+          <span>{{theme.name}}</span>
+        </button>
+      </mat-menu>
+    </dxc-header>
+    <router-outlet></router-outlet>
+    
+  </dxc-app-layout>
+</div>

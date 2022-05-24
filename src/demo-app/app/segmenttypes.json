@@ -1,0 +1,39 @@
+{"airport": [
+    {
+        "iata": "ALL",
+        "name": "All Carriers"
+    },
+    {
+        "iata": "HOST",
+        "name": "Host"
+    },
+    {
+        "iata": "HOSTOP",
+        "name": "Host Operated"
+    },
+    {
+        "iata": "HOSTMKT",
+        "name": "Host Market"
+    },
+    {
+        "iata": "STARALLIANCE",
+        "name": "Star Alliance"
+    },
+    {
+        "iata": "CODESHARE",
+        "name": "Code Share"
+    },
+    {
+        "iata": "AA",
+        "name": "American Airlines"
+    },
+    {
+        "iata": "UA",
+        "name": "United Airlines"
+    },
+    {
+        "iata": "DL",
+        "name": "Delta Airlines"
+    }
+]
+}

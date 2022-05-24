@@ -1,0 +1,12 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+//dxc-session variables
+$session-padding:           $default-spacing;
+$session-header-padding:    0 $session-padding;
+$session-title-padding:     ($session-padding * .75) 0;
+$session-content-padding:   $session-padding;
+$session-controls-padding:  ($session-padding * .25) 0;

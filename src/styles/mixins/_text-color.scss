@@ -1,0 +1,40 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin apply-text-color($theme){
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $warn: map-get($theme, warn);
+    $others: map-get($theme, others);
+
+    $theme-colors:(
+        primary: map-get($primary, default),
+        primary-dark: map-get($primary, dark),
+        primary-light: map-get($primary, light),
+        accent: map-get($accent, default),
+        accent-dark: map-get($accent, dark),
+        accent-light: map-get($accent, light),
+        tertiary: map-get($others, tertiary),
+        tertiary-dark: map-get($others, tertiary-l),
+        tertiary-light: map-get($others, tertiary-d),
+        success: map-get($others, success),
+        info: map-get($others, info),
+        warning: map-get($others, warning),
+        danger: map-get($others, danger)
+    );
+
+    @each $color, $value in $theme-colors {
+        .text-#{$color} {
+            color: $value !important;
+        }
+        a.text-#{$color} {
+            &:hover,
+            &:focus {
+                color: darken($value, 10%) !important;
+            }
+        }
+    }
+}

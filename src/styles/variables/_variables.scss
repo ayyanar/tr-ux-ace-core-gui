@@ -1,0 +1,95 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@import '~@angular/material/theming';
+
+//
+// Common Color system
+//
+
+$white:                     #ffffff !default;
+$gray-100:                  #f8f9fa !default;
+$gray-200:                  #e9ecef !default;
+$gray-300:                  #dee2e6 !default;
+$gray-400:                  #ced4da !default;
+$gray-500:                  #adb5bd !default;
+$gray-600:                  #868e96 !default;
+$gray-700:                  #495057 !default;
+$gray-800:                  #343a40 !default;
+$gray-900:                  #212529 !default;
+$black:                     #000000 !default;
+
+$grays: () !default;
+$grays: map-merge((
+    100:                  $gray-100,
+    200:                  $gray-200,
+    300:                  $gray-300,
+    400:                  $gray-400,
+    500:                  $gray-500,
+    600:                  $gray-600,
+    700:                  $gray-700,
+    800:                  $gray-800,
+    900:                  $gray-900
+), $grays);
+
+
+// Spacing
+//
+// Control the default styling of most Bootstrap elements by modifying these
+// variables. Mostly focused on spacing.
+// You can add more entries to the $spacers map, should you need more variation.
+$default-spacing: 16px;
+$default-container-spacing: 16px;
+$default-gutter-spacing: 10px;
+$spacer: 4px !default;
+$spacer-alt: 5px !default;
+$spacers: (
+  0:  0,
+  2:  2px,
+  4:  $spacer,
+  5:  $spacer-alt,
+  8:  ($spacer * 2),
+  10: ($spacer-alt * 2),
+  12: ($spacer * 3),
+  15: ($spacer-alt * 3),
+  16: ($spacer * 4),
+  20: ($spacer-alt * 4),
+  24: ($spacer * 6),
+  25: ($spacer-alt * 5),
+  28: ($spacer * 7),
+  30: ($spacer-alt * 6),
+  32: ($spacer * 8)
+) !default;
+
+// This variable affects the `.h-*` and `.w-*` classes.
+$sizes: (
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%
+) !default;
+
+// This variable affects the toolbar height
+$toolbar-height: 48px;
+
+$border-width:                1px !default;
+$border-color:                $gray-200 !default;
+
+$border-radius:               4px !default;
+$border-radius-lg:            ($border-radius * 1.5) !default;
+$border-radius-sm:            ($border-radius * .5) !default;
+
+// $image-path:'../../../assets/img';
+
+
+//variable to override material values
+
+//dialog override variables
+$dialog-title-padding:  ($default-spacing * .5) $default-spacing;
+$dialog-content-padding: $default-spacing;
+$dialog-actions-padding:  ($default-spacing * .5) $default-spacing;
+
+

@@ -1,0 +1,35 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@import "variables/components";
+
+dxc-session {
+  display: block;
+
+  .dxc-session-header {
+    // background-color: $session-header-bg-color;
+    padding: $session-header-padding; 
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dxc-session-title{
+    // font-size: mat-font-size($dxc-typography, title);
+    // line-height: mat-font-size($dxc-typography, title);
+    // font-weight: mat-font-weight($dxc-typography, title);
+    padding: $session-title-padding;
+  }
+  .dxc-session-content{
+    padding: $session-content-padding;
+  }
+  .dxc-session-header-spacer {
+    flex: 1 1 auto;
+  }
+
+  dxc-session-controls{
+    padding: $session-controls-padding;
+  }
+}

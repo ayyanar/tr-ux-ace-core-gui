@@ -1,0 +1,19 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<!-- <ul class="nav-container">
+  <li class="nav-item" *ngFor="let item of navItems;let i = index" [class.active]="i==activeItem">
+    <a class="nav-link" [routerLink]="item.Link" (click)="changeActiveItem(i)" >
+      {{item.Name}}
+    </a>
+  </li>
+</ul> -->
+<nav class="nav">
+  <!-- <a class="nav-link" *ngFor="let item of navItems;let i = index" [routerLink]="item.Link" (click)="changeActiveItem(i)" [class.active]="i==activeItem"> -->
+  <a class="nav-link" *ngFor="let item of navItems;let i = index" [routerLink]="item.Link"  routerLinkActive="active">
+    {{item.Name}}
+  </a>
+</nav>

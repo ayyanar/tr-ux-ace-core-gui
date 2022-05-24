@@ -1,0 +1,14 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<div *ngIf="showHeader==true" class="dxc-session-header">
+  <span class="dxc-session-title">{{sessionTitle}}</span>
+  <span class="dxc-session-header-spacer"></span>
+  <ng-content select="dxc-session-controls"></ng-content>
+</div>
+<div class="dxc-session-content">
+  <ng-content select="dxc-session-content"></ng-content>
+</div>

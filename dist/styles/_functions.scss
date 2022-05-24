@@ -1,0 +1,30 @@
+
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@function gray($key: "100") {
+  @return map-get($grays, $key);
+}
+  
+@function ace-palette($default, $light, $dark){
+  @return (
+      default: $default,
+      light: $light,
+      dark: $dark
+  );
+};
+
+@function ace-theme($primary, $accent, $warn, $others, $background, $foreground,$imagepath){
+  @return (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+      others: $others,
+      background: $background,
+      foreground: $foreground,
+      imagepath: $imagepath
+  );
+};

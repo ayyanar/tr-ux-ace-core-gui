@@ -1,0 +1,164 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin material-theme-override($theme, $mat-theme){
+
+    //override the modal dialog mat theme colors
+    $override-background: map-get($theme,background);
+    $override-foreground: map-get($theme,foreground);
+    $primary: map-get($mat-theme, primary);
+    $accent: map-get($mat-theme, accent);
+    $warn: map-get($mat-theme, warn);
+    
+
+    // .mat-dialog-title {
+    //     background-color: map-get($override-background, dialog-title);
+    // }
+
+    //override the table mat theme colors
+    .mat-header-row{
+        background-color: map-get($override-background,table-header);
+    }
+
+    .mat-table-gray{
+        .mat-header-row{
+            background-color: gray(200);
+        }
+    }
+    
+    .mat-header-cell{
+        color: map-get($override-foreground,table-header);
+    }
+    .mat-column-select {
+        max-width: 48px;
+        overflow: inherit;
+    } 
+
+   /* .mat-chip.mat-standard-chip{ newcode
+
+        &.mat-primary {
+          @include mat-chips-theme-color($primary);
+        }
+    
+        &.mat-warn {
+          @include mat-chips-theme-color($warn);
+        }
+    
+        &.mat-accent {
+          @include mat-chips-theme-color($accent);
+        }
+    }*/
+
+    $underline-color-warn: mat-color($warn);
+    .mat-form-field.mat-chip-form-field-invalid {
+        .mat-form-field-label {
+          color: $underline-color-warn;
+    
+          &.mat-accent,
+          .mat-form-field-required-marker {
+            color: $underline-color-warn;
+          }
+        }
+
+        .mat-form-field-ripple {
+          background-color: $underline-color-warn;
+        }
+        .mat-form-field-ripple {
+            visibility: visible;
+            opacity: 1;
+            transform: scaleX(1);
+            transition: transform 300ms $swift-ease-out-timing-function,
+                        opacity 100ms $swift-ease-out-timing-function,
+                        background-color 300ms $swift-ease-out-timing-function;
+        }
+
+        &:not(.mat-focused) .mat-form-field-underline .mat-form-field-ripple {
+            height: 1px;
+        }
+      }
+};
+
+@mixin material-typography-override($config){
+    .mat-dialog-title{
+        @include mat-typography-level-to-styles($config, headline);
+    }
+}
+
+@mixin material-override(){
+    //dialog override variables
+    $dialog-title-padding:  ($default-spacing * .5) $default-spacing;
+
+    // $dialog-title-bg-color: gray("200");
+    $dialog-content-padding: $default-spacing;
+    $dialog-actions-padding:  ($default-spacing * .5) $default-spacing;
+    mat-form-field {
+        ~ .mat-raised-button, ~ .mat-button, ~ .mat-icon-button, ~ .mat-fab, ~ .mat-mini-fab{
+            margin-bottom: 1.25em;
+        }
+    }
+    
+    .bottom-align-button{
+        &.mat-raised-button, &.mat-button, &.mat-icon-button, &.mat-fab, &.mat-mini-fab{
+            margin-bottom: 1.25em;
+        }
+    }
+
+    // .mat-dialog-container{
+    //     padding: 0;
+    // }
+    
+    // .mat-dialog-title {
+    //     margin: 0;
+    //     padding: $dialog-title-padding;
+    //     // background-color: $dialog-title-bg-color;
+    // }
+    
+    // .mat-dialog-content {
+    //     margin: 0;
+    //     padding: $dialog-content-padding;
+    // }
+    .mat-dialog-actions {
+        place-content: flex-end;
+        // padding: $dialog-actions-padding;
+        
+        // &:last-child{
+        //     margin-bottom: 0;
+        // }
+    }
+
+    input.mat-chip-input {
+        width: 100px;
+        margin: 1px;
+        flex: 1 0 100px;
+    }
+    .mat-icon.small-icon{
+        font-size: 18px;
+    }
+
+    .horizontal-radio-group .mat-radio-button~.mat-radio-button {
+        padding-left: 16px;
+    }
+    
+    .vertical-radio-group {
+        display: inline-flex;
+        flex-direction: column;
+    }
+
+    .mat-sort-header-arrow {
+        margin-top: 3px !important;
+    }
+
+    .mat-form-field-infix {
+        width: auto;
+    }
+    
+    .mat-form-field-prefix .mat-icon,
+    .mat-form-field-suffix .mat-icon {
+        font-size: 18px;
+        font-weight: 700;
+        vertical-align: middle;
+    }
+};

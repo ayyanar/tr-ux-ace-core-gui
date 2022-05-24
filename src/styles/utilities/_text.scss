@@ -1,0 +1,47 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+// stylelint-disable declaration-no-important
+
+//
+// Text
+//
+
+// .text-monospace { font-family: $font-family-monospace; }
+
+// Alignment
+
+.text-justify  { text-align: justify !important; }
+.text-nowrap   { white-space: nowrap !important; }
+.text-truncate { 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Responsive alignment
+
+.text-left   { text-align: left !important; }
+.text-right  { text-align: right !important; }
+.text-center { text-align: center !important; }
+
+// Transformation
+
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
+
+
+// Contextual colors
+
+.text-white { color: $white !important; }
+
+// @each $color, $value in $theme-colors {
+//   @include text-emphasis-variant(".text-#{$color}", $value);
+// }
+
+.text-black-50 { color: rgba($black, .5) !important; }
+.text-white-50 { color: rgba($white, .5) !important; }

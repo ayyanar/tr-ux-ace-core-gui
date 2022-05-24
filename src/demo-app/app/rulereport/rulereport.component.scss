@@ -1,0 +1,84 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+.rulereport-left-pane{
+    display: block;
+    background-color: #FFF;
+    height: 100%;
+}
+
+.reports-nav-bar{
+	background-color: #EEE;
+	text-align: center;
+}
+
+.mat-tab-link{
+	min-width: 120px;
+}
+
+.mat-icon.custom-mat-icon {
+    font-size: 18px;
+    height: 18px;
+    width: 18px;
+    line-height: 24px;
+    color: blue;
+}
+
+span.caption {
+    font-size:12px;
+    font-weight: 500;
+    line-height: 1;
+    color: #999;
+}
+
+.arrow-right {
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    
+    border-left: 10px solid green;
+  }
+
+.breadcrumb {
+    font-size: 14px;
+    color: #0060a9;
+    text-decoration: underline;
+    &:last-child{
+        text-decoration: none;
+        color: #aaa;
+    }
+}
+
+.breadcrumb:not(:first-child):before {
+    content: '\E5CC';
+    color: #0060a9;
+    vertical-align: top;
+    display: inline-block;
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    margin: 0 5px 0 4px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.text-primary-color {
+    color: #0060a9;
+}
+
+.example-form{
+    display: block;
+    -webkit-transition: max-height 1s; /* For Safari 3.1 to 6.0 */
+    transition: max-height 0.5s ease-in-out;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.hide-option{
+    max-height: 0;
+    
+}

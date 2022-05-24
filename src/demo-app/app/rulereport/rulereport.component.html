@@ -1,0 +1,243 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<dxc-content>
+    <dxc-app-left-content width="300px">
+        <div fxLayout="column" fxLayoutAlign=" none" class="rulereport-left-pane dxc-full-height">
+            <div fxFlex="initial" class="p-t-16 border-bottom">
+                <mat-form-field class="p-x-16 dxc-full-width">
+                    <mat-select placeholder="Search Type" value="CS">
+                        <mat-option value="CS">Custom Seamless Avail. Request</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div fxFlex class="vertical-scroll-auto custom-scroll-bar">
+                <div class="border-bottom p-x-16">
+                    <h4 class="mandatory">Market</h4>
+                    <div class="border-bottom">
+                        <div fxLayout="row" fxLayoutAlign="none end" fxLayoutGap="10px">
+                            <button matTooltip="Add" class="bottom-align-button" mat-icon-button color="primary">
+                                <mat-icon>add_circle</mat-icon>Upto 3 Dates/Flights
+                            </button>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="none end" fxLayoutGap="10px">
+                            <mat-form-field fxFlex class="dxc-full-width">
+                                <input matInput placeholder="Orgin" required>
+                            </mat-form-field>
+                            <mat-icon class="m-b-16">keyboard_arrow_right</mat-icon>
+                            <mat-form-field fxFlex class="dxc-full-width">
+                                <input matInput placeholder="Destination" required>
+                            </mat-form-field>
+
+                        </div>
+
+                        <div fxLayout="row" fxLayoutAlign="none end" fxLayoutGap="10px">
+                            <mat-form-field class="dxc-full-width">
+                                <input matInput [matDatepicker]="depdatepicker" placeholder="Departure Date" required>
+                                <mat-datepicker-toggle matSuffix [for]="depdatepicker"></mat-datepicker-toggle>
+                                <mat-datepicker #depdatepicker></mat-datepicker>
+                            </mat-form-field>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="none end" fxLayoutGap="10px">
+                            <mat-form-field fxFlex="70%" class="dxc-full-width">
+                                <input matInput placeholder="Flight Number">
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="border-bottom p-x-16">
+                    <h4>POS</h4>
+                    <div fxLayout="row" fxLayoutAlign="none end" fxLayoutGap="10px">
+                        <mat-form-field fxFlex class="dxc-full-width">
+                            <input matInput placeholder="Country">
+                        </mat-form-field>
+                        <mat-form-field fxFlex class="dxc-full-width">
+                            <input matInput placeholder="Booking Airport/City Code">
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="none end" fxLayoutGap="10px">
+                        <mat-form-field fxFlex class="dxc-full-width">
+                            <input matInput placeholder="IATA Code">
+                        </mat-form-field>
+                        <mat-form-field fxFlex class="dxc-full-width">
+                            <input matInput placeholder="GDS/Carrier">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="p-x-16">
+                    <mat-checkbox>
+                        <h4>Compare POS</h4>
+                    </mat-checkbox>
+                </div>
+                <!-- <div class="p-x-16">
+                    <mat-checkbox>
+                        <h4>Simulation</h4>
+                    </mat-checkbox>
+                </div> -->
+            </div>
+            <div fxFlex="initial" class="p-y-16 border-top pull-left">
+                <button mat-button>Clear</button>
+                <button mat-raised-button color="primary">Search</button>
+            </div>
+        </div>
+    </dxc-app-left-content>
+    <dxc-app-center-content [fixedtop]="true">
+        <dxc-fixed-top-content>
+            <dxc-nav [nav-items]="navItems" ></dxc-nav>
+            <nav mat-tab-nav-bar color="primary" class="reports-nav-bar">
+                <nav mat-tab-nav-bar>
+                    <a mat-tab-link *ngFor="let link of links" (click)="activeLink = link" [active]="activeLink == link"> {{ link }} </a>
+                </nav>
+            </nav>
+        </dxc-fixed-top-content>
+        <dxc-session show-header='false'>
+            <dxc-session-content>
+                <div fxLayout="row" fxLayoutAlign=" start" [class.border-bottom]="!show" class="dxc-session-ignore-padding">
+                    <h2 fxFlex="auto" class="mat-title">Rules Report - Market TGU > MIA</h2>
+                    <button fxFlex="40px" mat-icon-button (click)="toggleShow()">
+                        <mat-icon *ngIf="show">expand_less</mat-icon>
+                        <mat-icon *ngIf="!show">expand_more</mat-icon>
+                    </button>
+                </div>
+                <div *ngIf="false" fxLayout="row" fxLayoutAlign=" center" class="p-y-8">
+                    <div  fxFlex="auto" class="m-y-8">
+                        <a class="breadcrumb">Bid Price Adjustment</a>
+                        <a class="breadcrumb" >TGU > SFO</a>
+                    </div>
+                    <button mat-raised-button color="primary">Export</button>
+                </div>
+                
+                
+                <div class="example-form dxc-session-ignore-padding p-x-0" [class.hide-option]="!show">
+                    <dxc-tab-nav-bar class="border-top">
+                        <nav mat-tab-nav-bar>
+                            <nav mat-tab-nav-bar>
+                                <a mat-tab-link *ngFor="let link of ruleTypeLinks" (click)="ruleTypeActiveLink = link" [active]="ruleTypeActiveLink == link">
+                                {{ link }} </a>
+                            </nav>
+                        </nav>
+                    </dxc-tab-nav-bar>
+                    <div fxLayout="row" fxLayoutAlign=" start" fxLayoutGap="20px" class="p-y-16">
+                        <div fxFlex="50">
+                            <h4>Class</h4>
+                            <dxc-class-selector *ngFor="let cabin of cabinClasses" class="p-b-8">
+                                <mat-button-toggle-group fxLayout="row wrap">
+                                    <mat-button-toggle *ngFor="let class of cabin.bookingClasses" [value]="class" >
+                                        {{class}}
+                                    </mat-button-toggle>
+                                </mat-button-toggle-group>
+                            </dxc-class-selector>
+                        </div>
+                        <div fxFlex="50">
+                            <h4>Display</h4>
+                            <mat-radio-group class="horizontal-radio-group" value="SA">
+                                <mat-radio-button value="SA">Show All</mat-radio-button>
+                                <mat-radio-button value="EX">Executed</mat-radio-button>
+                                <mat-radio-button value="NEX">Not Executed</mat-radio-button>
+                            </mat-radio-group>
+                        </div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign=" center" class="dxc-session-ignore-padding border-top border-bottom">
+                        <dxc-tab-nav-bar fxFlex="auto" class="dxc-session-ignore-padding p-x-0">
+                            <nav mat-tab-nav-bar color="warn">
+                                <nav mat-tab-nav-bar>
+                                    <a mat-tab-link *ngFor="let link of legLinks" (click)="legActiveLink = link" [active]="legActiveLink == link"> {{ link }} </a>
+                                </nav>
+                            </nav>
+                        </dxc-tab-nav-bar>
+                        <button mat-raised-button color="primary">Export</button>
+                    </div>
+                </div>
+
+                <div fxLayout="row" fxLayoutGap="5px" class="dxc-session-ignore-padding p-x-0">
+                    <div fxFlex="50%">
+                        <h3 class="p-l-16 m-b-4">Production</h3>
+                        <mat-table [dataSource]="dataSource">
+                            <ng-container matColumnDef="select">
+                                <mat-header-cell fxFlex="10" *matHeaderCellDef>
+                                    <mat-checkbox> </mat-checkbox>
+                                </mat-header-cell>
+                                <mat-cell fxFlex="10" *matCellDef="let row">
+                                    <mat-checkbox> </mat-checkbox>
+                                </mat-cell>
+                            </ng-container>
+                            <ng-container cdkColumnDef="name">
+                                <mat-header-cell fxFlex="50" *cdkHeaderCellDef> Rule name </mat-header-cell>
+                                <mat-cell class="text-primary-color" fxFlex="50" *cdkCellDef="let row"> {{row.name}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="version">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Version </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.version}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="order">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Order </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.order}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="status">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Status </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.status}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="executed">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Executed </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.executed? 'Yes': 'No'}} </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row fxLayout fxLayoutGap="10px" *cdkHeaderRowDef="['select','name', 'version', 'order', 'status','executed']"></mat-header-row>
+                            <mat-row fxLayout fxLayoutGap="10px" *cdkRowDef="let row; columns: ['select','name', 'version', 'order', 'status','executed']"></mat-row>
+                        </mat-table>
+                    </div>
+                    <div fxFlex="50%">
+                        <h3 class="p-l-16 m-b-4">Simulation</h3>
+                        <mat-table class="mat-table-gray" [dataSource]="dataSource">
+                            <ng-container matColumnDef="select">
+                                <mat-header-cell fxFlex="10" *matHeaderCellDef>
+                                    <mat-checkbox> </mat-checkbox>
+                                </mat-header-cell>
+                                <mat-cell fxFlex="10" *matCellDef="let row">
+                                    <mat-checkbox> </mat-checkbox>
+                                </mat-cell>
+                            </ng-container>
+                            
+                            <ng-container cdkColumnDef="name">
+                                <mat-header-cell fxFlex="50" *cdkHeaderCellDef> Rule name </mat-header-cell>
+                                <mat-cell class="text-primary-color" fxFlex="50" *cdkCellDef="let row"> {{row.name}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="version">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Version </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.version}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="order">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Order </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.order}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="status">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Status </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.status}} </mat-cell>
+                            </ng-container>
+
+                            <ng-container cdkColumnDef="executed">
+                                <mat-header-cell fxFlex="10" *cdkHeaderCellDef> Executed </mat-header-cell>
+                                <mat-cell fxFlex="10" *cdkCellDef="let row"> {{row.executed? 'Yes': 'No'}} </mat-cell>
+                            </ng-container>
+
+                            <mat-header-row fxLayout fxLayoutGap="10px" *cdkHeaderRowDef="['select','name', 'version', 'order', 'status','executed']"></mat-header-row>
+                            <mat-row fxLayout fxLayoutGap="10px" *cdkRowDef="let row; columns: ['select','name', 'version', 'order', 'status','executed']"></mat-row>
+                        </mat-table>
+                    </div>
+                </div>
+            </dxc-session-content>
+        </dxc-session>
+    </dxc-app-center-content>
+
+</dxc-content>

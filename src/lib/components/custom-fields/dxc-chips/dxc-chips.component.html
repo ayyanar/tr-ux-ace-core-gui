@@ -1,0 +1,42 @@
+<!--
+    Unpublished work © 2019 DXC Technology Company.
+    All rights reserved.
+    Use, duplication, and/or alteration is subject to license terms.
+-->
+
+<form class="dxc-chips" >
+    <mat-form-field [class.mat-chip-form-field-invalid]="!isValid && !isDisabled" [class.dxc-chips-disabled]="isDisabled" fxFlex="100%" [floatLabel]="'auto'" #chipparent>
+        <mat-label>{{placeholder}}</mat-label>
+        <mat-chip-list #chipList>
+            <mat-chip *ngFor="let chip of showChips;let i = index" class=" mat-standard-chip mat-chip-selected" [selectable]="selectable" [color]="chip.valid ? 'normal':'warn'" [removable]="removable" (removed)="remove(chip,i,'idel')">
+                {{chip.value}}
+                <mat-icon matChipRemove *ngIf="removable && !isDisabled">cancel</mat-icon>              
+            </mat-chip>
+            
+            <input #chipinput matInput regExValidationPattern="{{inputValidationFormat}}" [style.display]="selectedChips.length >= maxChipsAllow ? 'none' : 'block' "
+                [matChipInputFor]="chipList" [formControl]="chipListCtrl" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add($event)" (paste)="onPaste($event)" />
+        </mat-chip-list>
+
+        <button cdk-overlay-origin #addConditionOrigin="cdkOverlayOrigin" [style.display]="isShowMoreVisible?'block':'none'" matSuffix
+            mat-icon-button color="primary" (click)="showAllChips()">
+            <mat-icon aria-label="show all">more_horiz</mat-icon>
+        </button>
+        
+        <ng-template cdk-portal #addConditionTemplate="cdkPortal">
+            <div class="dxc-chips mat-elevation-z8 dxc-more-chips">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let chip of selectedChips;let i = index" class=" mat-standard-chip mat-chip-selected" [color]="chip.valid ? 'normal':'warn'" [selectable]="false" [removable]="removable" (removed)="remove(chip,i,'alldel')">
+                        {{chip.value}}
+                        <mat-icon matChipRemove *ngIf="removable && !isDisabled">cancel</mat-icon>
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+        </ng-template>
+        <mat-hint *ngIf="isPasted">{{pasteText}}</mat-hint>
+        <mat-hint *ngIf="maxChipsAllow > 0" align="end">{{selectedChips.length}}/{{maxChipsAllow}}</mat-hint>
+        <div *ngIf="!isValid && !isPasted &&!isDisabled" class="mat-form-field-subscript-wrapper " >
+            <ng-content select="mat-error"></ng-content>
+        </div>
+    </mat-form-field>
+</form>

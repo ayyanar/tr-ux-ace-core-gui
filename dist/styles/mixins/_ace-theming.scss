@@ -1,0 +1,35 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+@mixin apply-ace-theme($theme){
+    $backcolor: map-get($theme, background);
+
+    color: $black-87-opacity;
+    background-color: map-get($backcolor,app-layout); 
+    
+    @include theme-app-layout($theme);
+    @include theme-class-selector($theme);
+    @include theme-header($theme);
+    @include theme-navigation($theme);
+    @include theme-session($theme);
+    @include theme-alert-message($theme);
+}
+
+@mixin apply-ace-typography($config){
+    font-family: mat-font-family($config);
+    font-size: mat-font-size($config, body-1);
+    line-height: mat-line-height($config, body-1);
+    font-weight: mat-font-weight($config, body-1);
+
+    @include material-typography-override($config);
+    @include typography-header($config);
+    @include typography-navigation($config);
+    @include typography-class-selector($config);
+    // @include typography-navigation($config);
+    @include typography-session($config);
+    @include typography-alert-message($config)
+    
+}

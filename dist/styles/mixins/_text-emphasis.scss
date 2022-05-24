@@ -1,0 +1,19 @@
+/*
+ * Unpublished work © 2019 DXC Technology Company.
+ * All rights reserved.
+ * Use, duplication, and/or alteration is subject to license terms.
+ */
+
+// stylelint-disable declaration-no-important
+// Typography
+@mixin text-emphasis-variant($parent, $color) {
+    #{$parent} {
+        color: $color !important;
+    }
+    a#{$parent} {
+        &:hover,
+        &:focus {
+            color: darken($color, 10%) !important;
+        }
+    }
+}
